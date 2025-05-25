@@ -16,9 +16,9 @@ struct Employee {
 
 void employe1() {
     vector<Employee> employees = {
-        {"Alice", 3000, "IT"}, {"Bob", 4000, "HR"}, {"Charlie", 5500, "IT"},
-        {"David", 4000, "IT"}, {"Eve", 4000, "HR"}, {"Frank", 2000, "Sales"},
-        {"Grace", 3500, "Sales"}
+        {"Alice", 3000, "IT"}, {"Vadya", 4000, "HR"}, {"Petya", 5500, "IT"},
+        {"Egor", 4000, "IT"}, {"Vlad", 4000, "HR"}, {"Maxim", 2000, "Sales"},
+        {"Masha", 3500, "Sales"}
     };
 
     // Группировка по департаменту
