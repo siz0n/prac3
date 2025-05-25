@@ -12,6 +12,9 @@ struct RGB { uint8_t r, g, b; };
 bool operator==(const RGB& a, const RGB& b) {
     return tie(a.r,a.g,a.b)==tie(b.r,b.g,b.b);
 }
+bool operator<(const RGB& a, const RGB& b) {
+    return tie(a.r, a.g, a.b) < tie(b.r, b.g, b.b);
+}
 namespace std {
     template<> struct hash<RGB> {
         size_t operator()(const RGB& c) const {
