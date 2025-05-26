@@ -25,12 +25,12 @@ struct LogEntry {
 int main() {
     
     vector<Player> players = {
-        {"Alice",   60, 10, 1},
-        {"Bob",     50, 15, 1},
-        {"Clara",   55, 12, 1},
-        {"Draco",   65, 13, 2},
-        {"Elena",   45, 18, 2},
-        {"Felix",   70,  9, 2}
+        {"Egor",   60, 10, 1},
+        {"Vasya",     50, 15, 1},
+        {"Kiril",   55, 12, 1},
+        {"Vlad",   65, 13, 2},
+        {"Petya",   45, 18, 2},
+        {"Anya",   70,  9, 2}
     };
 
     //очередь ходов по указателям (живые игроки)
@@ -42,7 +42,6 @@ int main() {
     int round = 1;
 
     while (battle_ongoing) {
-        cout << "\nРаунд " << round << ":\n";
         for (auto it = turn_queue.begin(); it != turn_queue.end(); ++it) {
             Player* attacker = *it;
             if (!attacker->alive()) continue;
@@ -72,9 +71,7 @@ int main() {
             if (target->hp < 0) target->hp = 0;
 
             battle_log.push_back({attacker->name, target->name, damage, attacker->team});
-            cout << attacker->name << " (Team " << attacker->team << ") атакует " 
-                      << target->name << " (Team " << target->team << ") на " 
-                      << damage << " урона. Осталось HP: " << target->hp << "\n";
+            
         }
         // убираем мертвых
         round++;
@@ -107,7 +104,7 @@ int main() {
     cout << "Команда 2: " << teams[2] << " урона\n";
 
     // Лог атак
-    cout << "\nЛог атак:\n";
+    cout << "\nИстория атак:\n";
     for (const auto& log : battle_log) {
         cout << log.attacker << " (Team " << log.attacker_team << ") -> " 
                   << log.target << " : " << log.damage << " урона\n";
