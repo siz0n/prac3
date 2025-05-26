@@ -11,7 +11,7 @@ void miltiples3() {
 
     vector<int> max_chain;
 
-    // Рекурсивная лямбда через захват самой себя (C++14+)
+    
     auto find_chain = [&](const auto& self, vector<int>& curr, int idx, vector<int>& best) -> void {
         for (size_t i = idx + 1; i < nums.size(); ++i) {
             if (nums[i] % curr.back() == 0) {
