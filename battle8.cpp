@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -22,7 +21,7 @@ struct LogEntry {
 };
 
 int main() {
-    // Пример игроков (можете заменить на ввод)
+    
     std::vector<Player> players = {
         {"Alice",   60, 10, 1},
         {"Bob",     50, 15, 1},
@@ -32,7 +31,7 @@ int main() {
         {"Felix",   70,  9, 2}
     };
 
-    // Делаем очередь ходов по указателям (живые игроки)
+    //очередь ходов по указателям (живые игроки)
     std::deque<Player*> turn_queue;
     for (auto& p : players) turn_queue.push_back(&p);
 
@@ -46,19 +45,19 @@ int main() {
             Player* attacker = *it;
             if (!attacker->alive()) continue;
 
-            // Найти живых противников
+            // поиск живых
             std::vector<Player*> enemies;
             for (auto& p : players)
                 if (p.team != attacker->team && p.alive())
                     enemies.push_back(&p);
 
             if (enemies.empty()) {
-                // Победитель определён!
+                
                 battle_ongoing = false;
                 break;
             }
 
-            // Выбор цели с минимальным hp
+            // поиск мин хп
             auto target_it = std::min_element(
                 enemies.begin(), enemies.end(),
                 [](Player* a, Player* b) { return a->hp < b->hp; }
@@ -75,12 +74,12 @@ int main() {
                       << target->name << " (Team " << target->team << ") на " 
                       << damage << " урона. Осталось HP: " << target->hp << "\n";
         }
-        // Удаление мёртвых из очереди (но итерация безопасна, т.к. только пропускаем их ходы)
+        // убираем мертвых
         round++;
-        // battle_ongoing проверяется в начале раунда
+        
     }
 
-    // Определение победившей команды
+    // Опоиск команды которая победила
     int alive_team = -1;
     for (const auto& p : players) {
         if (p.alive()) {
@@ -91,8 +90,8 @@ int main() {
 
     std::cout << "\nБитва завершена! Победила команда " << alive_team << "\n\n";
 
-    // Статистика по урону
-    int teams[3] = {0, 0, 0}; // team 1, team 2, [0 не используется]
+    
+    int teams[3] = {0, 0, 0}; 
     for (int t = 1; t <=2; ++t) {
         teams[t] = std::accumulate(
             battle_log.begin(), battle_log.end(), 0,
