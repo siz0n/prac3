@@ -30,7 +30,7 @@ void analysis6() {
         {"C", 25, true, "Mon"}, {"C", 28, true, "Mon"}, {"C", 27, true, "Mon"},
         {"C", 22, false, "Mon"}, {"C", 21, true, "Tue"}, {"C", 22, false, "Tue"}
     };
-    int N = 3;
+    int N = 3; // 
     map<string, map<string, ReportStats>> result;
 
     // Группировка
@@ -46,7 +46,7 @@ void analysis6() {
         for (const auto& dayPair : days) {
             const auto& day = dayPair.first;
             const auto& vec = dayPair.second;
-            if ((int)vec.size() < N) continue;
+            if ((int)vec.size() < N) continue; // Отсейка малых групп
             vector<int> ackDelays;
             int ackCount = 0;
             for (const auto& r : vec) {
