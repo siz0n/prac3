@@ -11,12 +11,12 @@ struct Response {
     string team;
     int delayMinutes;
     bool acknowledged;
-    string dayOfWeek; // "Mon", "Tue", ...
+    string dayOfWeek; 
 };
 
 struct ReportStats {
-    double avgAckDelay;      // -1.0 means n/a
-    double medianAckDelay;   // -1.0 means n/a
+    double avgAckDelay;      
+    double medianAckDelay;   
     double ackPercent;
     int totalRequests;
 };
