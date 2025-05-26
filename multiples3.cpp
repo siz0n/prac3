@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <map>
@@ -89,16 +88,17 @@ tuple<int, int, vector<int>> max_common_friends(const vector<User>& users) {
 
 int main() {
     vector<User> users = {
-        {1, "Alice", {2, 3}},
-        {2, "Bob", {1, 3, 4}},
-        {3, "Charlie", {1, 2, 4}},
-        {4, "Diana", {2, 3, 5}},
-        {5, "Eve", {4}}
+        {1, "Maxim", {2, 3}},
+        {2, "Vasya", {1, 3, 4}},
+        {3, "Vova", {1, 2, 4}},
+        {4, "Egor", {2, 3, 5}},
+        {5, "Nikita", {4}}
     };
 
     cout << "Введите id двух пользователей для поиска цепочки: ";
     int from_id, to_id;
-    cin >> from_id >> to_id;
+    from_id = 4;
+    to_id = 1;
 
     auto chain = shortest_chain(users, from_id, to_id);
     if (chain.empty()) {
